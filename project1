@@ -1,0 +1,128 @@
+Spring 2019 Project 1
+
+Write a program which reads an integer N from the user and prints an 'M' with height N by using 2 and _ characters.The lines of your M will compose of 222 characters and the spaces of between lines will be represented by _ character. 
+If you look at the first example, you can observe followings: •The given input is 6 and the height of M is also 6.
+•Lines compose of 2s and the thickness of them is 3.
+•The spaces of between lines is filled with _ characters.
+Examples:
+input:6 output: 
+2222__2222
+22222_22222
+222222222222
+222_22222_222
+222__2222__222
+222___222___222
+
+input:15 output:
+2222___________2222
+22222__________22222
+222222_________222222
+222_222________222_222
+222__222_______222__222
+222___222______222___222
+222____222_____222____222
+222_____222____222_____222
+222______222___222______222
+222_______222__222_______222
+222________222_222________222
+222_________222222_________222
+222__________22222__________222
+222___________2222___________222
+222____________222____________222
+
+
+
+
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+	int a,i,j;
+	scanf("%d",&a);
+
+	for(i=1;i<=a;i++){
+		int row=a+i+3;
+			for(j=1;j<=row;j++){
+				if((j<=3) || (j>=row-2) || ((j>i) && (j<=i+3)) ||  ((j>a)&& (j<=a+3))){
+					printf("2");
+				}
+				else{
+					printf("_");
+				}
+			}
+			printf("\n");
+
+	}
+	return 0;
+}
+
+_____________
+
+alternative way(doesnt work for 6)
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+int i,j,k,m,n;
+scanf("%d",&n);
+m=n;
+	for(i=1;i<=4;i++){
+		printf("222");
+		for(j=1;j<i;j++){
+			printf("2");
+		}
+		for(k=(m-3);k>(0);k--){
+			printf("_");
+		}
+		m--;
+		for(j=1;j<i;j++){
+			printf("2");
+		}
+		printf("222");
+		printf("\n");
+	}
+	m=n;
+	for(i=1;i<=(n-7);i++){
+		printf("222");
+		for(k=1;k<=i;k++){
+			printf("_");
+		}
+		printf("222");
+		for(j=(m-6);j>1;j--){
+			printf("_");
+		}
+		m--;
+		printf("222");
+		for(j=1;j<=i;j++){
+			printf("_");
+		}printf("222");
+		printf("\n");
+	}
+	m=n;
+	for(i=3;i>=1;i--){
+		printf("222");
+		for(j=1;j<=(m-6);j++){
+			printf("_");
+		}
+
+		printf("222");
+		for(j=1;j<=i;j++){
+			printf("2");
+		}
+		for(j=1;j<=(m-6);j++){
+			printf("_");
+		}
+		printf("222");
+		printf("\n");
+		m++;
+	}
+
+return 0;
+}
+
+
+
+
