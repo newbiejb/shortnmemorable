@@ -1,0 +1,120 @@
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(){
+	int h,m,s,i;
+	char a,b;
+	scanf("%d%c%d%c%d",&h,&a,&m,&b,&s);
+
+
+	if(h>=24 || m>=60 || s>=60){
+		printf("Invalid time");
+	}
+	else{
+		if(h>=12 ){
+		h=h-12;
+		printf(((h<10)?"0%d:":"%d:"),h);
+		printf(((m<10)?"0%d:":"%d:"),m);
+		printf(((s<10)?"0%d:":"%d:"),s);
+		printf("p");
+
+		}
+		else if(h==0){
+			h=12;
+			printf(((h<10)?"0%d:":"%d:"),h);
+					printf(((m<10)?"0%d:":"%d:"),m);
+					printf(((s<10)?"0%d:":"%d:"),s);
+					printf("a");
+		}
+		else{
+			printf(((h<10)?"0%d:":"%d:"),h);
+			printf(((m<10)?"0%d:":"%d:"),m);
+			printf(((s<10)?"0%d:":"%d:"),s);
+					printf("a");
+		}
+}
+	return 0;
+}
+
+________________________________________________________________________
+
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+	int n,m,i,j,a;
+	scanf("%d",&n);
+	for(a=1;a<=n;a++){
+		for(i=(n-1);i>=1;i--){
+		printf(" ");
+			}
+		for(j=1;j<=(2*i-1);j++){
+	printf("*");
+	}
+	printf("\n");
+
+		}
+	return 0;
+}
+
+
+_____________________________________________
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+	int n,i,j,k,m,l;
+	char ch,b;
+	scanf("%d%c%c",&n,&b,&ch);
+	for(i=1;i<=n;i++){
+		if(i==1 || i==n){
+			for(k=1;k<=n;k++){
+				printf("%c",ch);
+			}
+		}
+		else{
+			for(j=1;j<i;j++){
+				printf("%c",ch);
+			}
+			for(m=(n-j);m>=1;m--){
+				printf(" ");
+			}
+			printf("%c",ch);
+		}
+		printf("\n");
+
+	}
+	return 0;
+}
+_________________________________________________
+
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+	int n,i,j;
+	char c,a;
+	scanf("%d",&n);
+	scanf("%c",&c);
+	while(c!='*' ){
+		if('A'<=c && c<='Z'){
+		c= c+32;
+		}
+	for(i=1;i<=n;i++){
+		printf(((i==n)?"\n":"%c"),c);
+	}
+
+	}
+	scanf("%c",&c);
+
+	return 0;
+}
+___________________________________________________
+
