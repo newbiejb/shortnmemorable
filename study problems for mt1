@@ -1,0 +1,119 @@
+QUESTION: Write a program which compresses the entered character sequence with the Run Length Encoding (RLE) algorithm. You will read the character sequence until * is seen.
+
+RLE algorithm: It replaces sequences of the same data values  (eg: characters, integers etc) by a count number and a single value.
+EXAMPLE RUN:
+INPUT:
+aaaXXyyyyZ+++bb+++++77*
+OUTPUT:
+3a2X4y1Z3+2b5+27
+
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+	char a,b;
+	int i;
+	scanf("%c",&a);
+	b=a;
+	for(i=0;;){
+
+		i++;
+		scanf("%c",&a);
+		if(a!=b){
+			printf("%d%c",i,b);
+			i=0;
+		}
+
+		b=a;
+		if(a=='*'){
+			break;
+		}
+	}
+
+	return 0;
+}
+
+
+_______________________________________
+
+QUESTION: Write a program which makes Caesar encrption. Caesar encryption: Caesar encryption is based on circular shifting of the letters with a given amount. See the example runs below for a better understanding.
+
+Your program will encrypt the input as:
+it will shift the letters by the given amount (if it passes z, it will continue from a)
+it will not change spaces (' ')
+The input sequence will end with '\n'
+You can assume that no other characters will be entered
+
+Your program will read the sequence character by character until enter. (For using enter as a sentinel (finishing, end of sequence) character,  you must make
+c !='\n'
+check inside the while loop :
+while( c != '\n' ){ 
+
+EXAMPLE RUN:
+INPUT:
+4
+little quick brown fox jumped over the lazy dog
+OUTPUT:
+pmxxpi uymgo fvsar jsb nyqtih sziv xli pedc hsk
+
+EXAMPLE RUN 2:
+INPUT:
+-4
+pmxxpi uymgo fvsar jsb nyqtih sziv xli pedc hsk
+OUTPUT:
+little quick brown fox jumped over the lazy dog
+NOTES:
+If you read the first number like:
+scanf( "%d",&num );
+and if your next scanf is for reading a character:
+scanf( "%c",&c );
+this will read '\n' character
+(since %d reads the entered integer and finishes after it,
+the next character is '\n' and next %c will read it)
+
+For preventing this you should read the '\n' to a dummy character variable
+EG:
+char c,dummy;
+int num;
+scanf("%d%c",&num,&dummy); // dummy becomes '\n'
+scanf("%c",&c); // c becomes the next character ( eg: 'a' )
+You will need % (modulus) operator. eg:
+int x=47, y=11, z;
+z = x%y;   // z becomes 3
+
+
+
+
+(doesnt work if (eg)5000 later char is wanted)
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+	int n,m;
+	char c,z,a;
+	scanf("%d%c",&n,&c);
+	while(c!='\n'){
+		if(c!=' '){
+			if(('z'-c)<n){
+				m=c;
+				m= 'a' + (n-('z'-c) -1);
+				printf("%c",m);
+			}
+		else{
+			c= c+n;
+		printf("%c",c);
+		}
+		}
+		else{
+			printf(" ");
+		}
+		scanf("%c",&c);
+		}
+	return 0;
+}
+
+
+_______________________
